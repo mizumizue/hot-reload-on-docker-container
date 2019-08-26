@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      target: build
+      args:
+        - GO_VERSION=$GO_VERSION
+        - PROJECT_NAME=github.com/trewanek/hot-reload-on-docker-container
+    volumes:
+      - ./:/go/src/github.com/trewanek/hot-reload-on-docker-container
+    working_dir: /go/src/github.com/trewanek/hot-reload-on-docker-container
+    command: ["realize", "start", "--run", "--no-config"]
+    ports:
+      - "8080:8080"
