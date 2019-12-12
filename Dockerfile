@@ -11,6 +11,7 @@ ADD . /go/src/${PROJECT_NAME}
 
 RUN apk add --no-cache git
 RUN go build -o app
+RUN go get gopkg.in/urfave/cli.v2@master
 RUN go get github.com/oxequa/realize
 
 # Application container
